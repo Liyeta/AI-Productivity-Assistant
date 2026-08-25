@@ -19,7 +19,7 @@ export const Route = createFileRoute("/chat")({
       },
     ],
   }),
-  component: Chat;
+  component: Chat,
 });
 
 const suggestions = [

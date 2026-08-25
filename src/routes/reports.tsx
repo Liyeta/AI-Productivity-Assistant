@@ -18,7 +18,7 @@ export const Route = createFileRoute("/reports")({
       },
     ],
   }),
-  component: Reports;
+  component: Reports,
 });
 
 const maxBookings = Math.max(...monthlyBookings.map((m) => m.bookings));
