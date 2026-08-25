@@ -41,7 +41,7 @@ export function generateEmail(input: {
   details: string;
 }) {
   const subject = purposeSubjects[input.purpose] ?? "A Note From Azzuro Body & Skin";
-  const opener = toneOpeners[input.tone] ?? toneOpeners.Professional;
+  const opener = toneOpeners[input.tone] ?? toneOpeners["Professional"];
   const detail = input.details.trim();
 
   return [
