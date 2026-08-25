@@ -11,8 +11,13 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BookingsRouteImport } from './routes/bookings'
+import { Route as ChatRouteImport } from './routes/chat'
 import { Route as CustomersRouteImport } from './routes/customers'
+import { Route as EmailGeneratorRouteImport } from './routes/email-generator'
+import { Route as ReportsRouteImport } from './routes/reports'
+import { Route as ResearchRouteImport } from './routes/research'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as StoreRouteImport } from './routes/store'
 
 const IndexRoute = IndexRouteImport.update({
@@ -25,14 +30,39 @@ const BookingsRoute = BookingsRouteImport.update({
   path: '/bookings',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ChatRoute = ChatRouteImport.update({
+  id: '/chat',
+  path: '/chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CustomersRoute = CustomersRouteImport.update({
   id: '/customers',
   path: '/customers',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EmailGeneratorRoute = EmailGeneratorRouteImport.update({
+  id: '/email-generator',
+  path: '/email-generator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportsRoute = ReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResearchRoute = ResearchRouteImport.update({
+  id: '/research',
+  path: '/research',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
   getParentRoute: () => rootRouteImport,
 } as any)
 const StoreRoute = StoreRouteImport.update({
@@ -44,38 +74,89 @@ const StoreRoute = StoreRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/bookings': typeof BookingsRoute
+  '/chat': typeof ChatRoute
   '/customers': typeof CustomersRoute
+  '/email-generator': typeof EmailGeneratorRoute
+  '/reports': typeof ReportsRoute
+  '/research': typeof ResearchRoute
   '/services': typeof ServicesRoute
+  '/settings': typeof SettingsRoute
   '/store': typeof StoreRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/bookings': typeof BookingsRoute
+  '/chat': typeof ChatRoute
   '/customers': typeof CustomersRoute
+  '/email-generator': typeof EmailGeneratorRoute
+  '/reports': typeof ReportsRoute
+  '/research': typeof ResearchRoute
   '/services': typeof ServicesRoute
+  '/settings': typeof SettingsRoute
   '/store': typeof StoreRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/bookings': typeof BookingsRoute
+  '/chat': typeof ChatRoute
   '/customers': typeof CustomersRoute
+  '/email-generator': typeof EmailGeneratorRoute
+  '/reports': typeof ReportsRoute
+  '/research': typeof ResearchRoute
   '/services': typeof ServicesRoute
+  '/settings': typeof SettingsRoute
   '/store': typeof StoreRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/bookings' | '/customers' | '/services' | '/store'
+  fullPaths:
+    | '/'
+    | '/bookings'
+    | '/chat'
+    | '/customers'
+    | '/email-generator'
+    | '/reports'
+    | '/research'
+    | '/services'
+    | '/settings'
+    | '/store'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/bookings' | '/customers' | '/services' | '/store'
-  id: '__root__' | '/' | '/bookings' | '/customers' | '/services' | '/store'
+  to:
+    | '/'
+    | '/bookings'
+    | '/chat'
+    | '/customers'
+    | '/email-generator'
+    | '/reports'
+    | '/research'
+    | '/services'
+    | '/settings'
+    | '/store'
+  id:
+    | '__root__'
+    | '/'
+    | '/bookings'
+    | '/chat'
+    | '/customers'
+    | '/email-generator'
+    | '/reports'
+    | '/research'
+    | '/services'
+    | '/settings'
+    | '/store'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BookingsRoute: typeof BookingsRoute
+  ChatRoute: typeof ChatRoute
   CustomersRoute: typeof CustomersRoute
+  EmailGeneratorRoute: typeof EmailGeneratorRoute
+  ReportsRoute: typeof ReportsRoute
+  ResearchRoute: typeof ResearchRoute
   ServicesRoute: typeof ServicesRoute
+  SettingsRoute: typeof SettingsRoute
   StoreRoute: typeof StoreRoute
 }
 
@@ -95,6 +176,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BookingsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/chat': {
+      id: '/chat'
+      path: '/chat'
+      fullPath: '/chat'
+      preLoaderRoute: typeof ChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/customers': {
       id: '/customers'
       path: '/customers'
@@ -102,11 +190,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CustomersRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/email-generator': {
+      id: '/email-generator'
+      path: '/email-generator'
+      fullPath: '/email-generator'
+      preLoaderRoute: typeof EmailGeneratorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reports': {
+      id: '/reports'
+      path: '/reports'
+      fullPath: '/reports'
+      preLoaderRoute: typeof ReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/research': {
+      id: '/research'
+      path: '/research'
+      fullPath: '/research'
+      preLoaderRoute: typeof ResearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services': {
       id: '/services'
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/store': {
@@ -122,8 +238,13 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BookingsRoute: BookingsRoute,
+  ChatRoute: ChatRoute,
   CustomersRoute: CustomersRoute,
+  EmailGeneratorRoute: EmailGeneratorRoute,
+  ReportsRoute: ReportsRoute,
+  ResearchRoute: ResearchRoute,
   ServicesRoute: ServicesRoute,
+  SettingsRoute: SettingsRoute,
   StoreRoute: StoreRoute,
 }
 export const routeTree = rootRouteImport
