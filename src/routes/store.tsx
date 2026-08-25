@@ -90,7 +90,7 @@ function Store() {
                   </div>
                   <button
                     onClick={() => addToCart(product.id, product.name)}
-                    className="flex-1 rounded-full bg-rosegold px-4 py-2 font-nav text-[11px] uppercase tracking-[0.14em] text-rosegold-foreground transition-opacity hover:opacity-90"
+                    className="flex-1 whitespace-nowrap rounded-full bg-rosegold px-3 py-2.5 font-nav text-[10px] uppercase tracking-[0.1em] text-rosegold-foreground transition-opacity hover:opacity-90"
                   >
                     Add to Cart
                   </button>
