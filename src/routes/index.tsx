@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { AiNotice, AppLayout } from "@/components/AppLayout";
 import { todaysBookings, zar } from "@/data/salon";
 import heroImage from "@/assets/spa-hero.jpg";
+import { CalendarPlus, UserPlus, Mail, Gift, Bot } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -31,11 +32,11 @@ const kpis = [
 ];
 
 const quickActions = [
-  { label: "New Booking", to: "/bookings", icon: "📅" },
-  { label: "Add Customer", to: "/customers", icon: "👥" },
-  { label: "Generate Email", to: "/email-generator", icon: "📧" },
-  { label: "Create Promotion", to: "/email-generator", icon: "🎁" },
-  { label: "AI Consultation", to: "/chat", icon: "🤖" },
+  { label: "New Booking", to: "/bookings", icon: CalendarPlus },
+  { label: "Add Customer", to: "/customers", icon: UserPlus },
+  { label: "Generate Email", to: "/email-generator", icon: Mail },
+  { label: "Create Promotion", to: "/email-generator", icon: Gift },
+  { label: "AI Consultation", to: "/chat", icon: Bot },
 ] as const;
 
 function Dashboard() {
@@ -94,8 +95,8 @@ function Dashboard() {
                 to={action.to}
                 className="surface-card flex items-center gap-3 p-4 transition-shadow hover:shadow-lift"
               >
-                <span aria-hidden className="grid size-10 place-items-center rounded-full bg-blush">
-                  {action.icon}
+                <span className="grid size-10 shrink-0 place-items-center rounded-full bg-blush">
+                  <action.icon className="size-4" />
                 </span>
                 <span className="font-nav text-[13px] tracking-wide">{action.label}</span>
               </Link>

@@ -1,26 +1,41 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
-import { Menu, X } from "lucide-react";
+import {
+  Menu,
+  X,
+  Home,
+  CalendarDays,
+  Sparkles,
+  ShoppingBag,
+  Users,
+  Mail,
+  Search,
+  Bot,
+  TrendingUp,
+  Settings,
+  User,
+  type LucideIcon,
+} from "lucide-react";
 
-const nav = [
-  { to: "/", label: "Dashboard", icon: "🏠" },
-  { to: "/bookings", label: "Bookings", icon: "📅" },
-  { to: "/services", label: "Services", icon: "💆" },
-  { to: "/store", label: "Retail Store", icon: "🛍" },
-  { to: "/customers", label: "Customers", icon: "👥" },
-  { to: "/email-generator", label: "Smart Email Generator", icon: "📧" },
-  { to: "/research", label: "AI Research Assistant", icon: "🔍" },
-  { to: "/chat", label: "AI Beauty Chat", icon: "🤖" },
-  { to: "/reports", label: "Reports & Analytics", icon: "📈" },
-  { to: "/settings", label: "Settings", icon: "⚙" },
+const nav: { to: any; label: string; icon: LucideIcon }[] = [
+  { to: "/", label: "Dashboard", icon: Home },
+  { to: "/bookings", label: "Bookings", icon: CalendarDays },
+  { to: "/services", label: "Services", icon: Sparkles },
+  { to: "/store", label: "Retail Store", icon: ShoppingBag },
+  { to: "/customers", label: "Customers", icon: Users },
+  { to: "/email-generator", label: "Smart Email Generator", icon: Mail },
+  { to: "/research", label: "AI Research Assistant", icon: Search },
+  { to: "/chat", label: "AI Beauty Chat", icon: Bot },
+  { to: "/reports", label: "Reports & Analytics", icon: TrendingUp },
+  { to: "/settings", label: "Settings", icon: Settings },
 ] as const;
 
-const bottomNav = [
-  { to: "/", label: "Home", icon: "🏠" },
-  { to: "/bookings", label: "Bookings", icon: "📅" },
-  { to: "/store", label: "Store", icon: "🛍" },
-  { to: "/chat", label: "AI Chat", icon: "🤖" },
-  { to: "/settings", label: "Profile", icon: "👤" },
+const bottomNav: { to: any; label: string; icon: LucideIcon }[] = [
+  { to: "/", label: "Home", icon: Home },
+  { to: "/bookings", label: "Bookings", icon: CalendarDays },
+  { to: "/store", label: "Store", icon: ShoppingBag },
+  { to: "/chat", label: "AI Chat", icon: Bot },
+  { to: "/settings", label: "Profile", icon: User },
 ] as const;
 
 function Brand() {
@@ -55,9 +70,7 @@ function NavList({ onNavigate }: { onNavigate?: () => void }) {
                 : "text-muted-foreground hover:bg-muted hover:text-foreground"
             }`}
           >
-            <span aria-hidden className="text-base">
-              {item.icon}
-            </span>
+            <item.icon className="size-4" />
             {item.label}
           </Link>
         );
@@ -144,9 +157,7 @@ export function AppLayout({
               className="flex flex-col items-center gap-1 py-3 font-nav text-[10px] uppercase tracking-wider text-muted-foreground [&.active]:text-rosegold"
               activeProps={{ className: "active" }}
             >
-              <span aria-hidden className="text-base">
-                {item.icon}
-              </span>
+              <item.icon className="size-5" />
               {item.label}
             </Link>
           ))}
