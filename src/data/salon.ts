@@ -1,3 +1,10 @@
+import slimSculptCream from "@/assets/product-slim-sculpt-cream.jpg";
+import bodyContourGel from "@/assets/product-body-contour-gel.jpg";
+import hydratingFacialSerum from "@/assets/product-hydrating-facial-serum.jpg";
+import spaBodyOil from "@/assets/product-spa-body-oil.jpg";
+import massageOilCollection from "@/assets/product-massage-oil-collection.jpg";
+import antiCelluliteCream from "@/assets/product-anti-cellulite-cream.jpg";
+
 export type ServiceCategory = {
   name: string;
   icon: string;
@@ -107,11 +114,13 @@ export type Product = {
   price: number;
   description: string;
   tone: string;
+  image: string;
 };
 
 export const products: Product[] = [
   {
     id: "slim-sculpt-cream",
+    image: slimSculptCream,
     name: "Slim Sculpt Cream",
     price: 399,
     description: "Firming daily cream with caffeine and marine botanicals.",
@@ -119,6 +128,7 @@ export const products: Product[] = [
   },
   {
     id: "body-contour-gel",
+    image: bodyContourGel,
     name: "Body Contour Gel",
     price: 349,
     description: "Cooling gel that targets stubborn areas after treatment.",
@@ -126,6 +136,7 @@ export const products: Product[] = [
   },
   {
     id: "hydrating-facial-serum",
+    image: hydratingFacialSerum,
     name: "Hydrating Facial Serum",
     price: 450,
     description: "Hyaluronic serum for plump, dewy, restored skin.",
@@ -133,6 +144,7 @@ export const products: Product[] = [
   },
   {
     id: "spa-body-oil",
+    image: spaBodyOil,
     name: "Spa Body Oil",
     price: 299,
     description: "Silk-finish oil blended with rose and sweet almond.",
@@ -140,6 +152,7 @@ export const products: Product[] = [
   },
   {
     id: "massage-oil-collection",
+    image: massageOilCollection,
     name: "Massage Oil Collection",
     price: 550,
     description: "Trio of therapeutic oils: relax, revive and recover.",
@@ -147,6 +160,7 @@ export const products: Product[] = [
   },
   {
     id: "anti-cellulite-cream",
+    image: antiCelluliteCream,
     name: "Anti Cellulite Cream",
     price: 499,
     description: "Concentrated smoothing cream for visible texture change.",
