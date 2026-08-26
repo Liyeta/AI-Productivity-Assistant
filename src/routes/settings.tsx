@@ -154,6 +154,174 @@ function Settings() {
           <AiNotice />
         </div>
       </div>
+
+      <section className="surface-card mt-6 p-6 lg:p-8">
+        <span className="label-eyebrow">Facial &amp; Body Treatments Consultation</span>
+        <h2 className="mt-2 text-2xl">Client Consultation &amp; Waiver Form</h2>
+        <p className="mt-2 max-w-3xl text-sm text-muted-foreground">
+          Please complete this form before your first treatment and whenever your health or
+          medication changes. All information is kept confidential and helps your therapist choose
+          safe, effective treatments.
+        </p>
+
+        <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          <label className="block text-sm">
+            Full Name
+            <input className={fieldClass} placeholder="Name and surname" />
+          </label>
+          <label className="block text-sm">
+            Date of Birth
+            <input type="date" className={fieldClass} />
+          </label>
+          <label className="block text-sm">
+            Contact Number
+            <input className={fieldClass} placeholder="+27 ..." />
+          </label>
+          <label className="block text-sm">
+            Email Address
+            <input type="email" className={fieldClass} placeholder="you@email.co.za" />
+          </label>
+          <label className="block text-sm">
+            Emergency Contact
+            <input className={fieldClass} placeholder="Name &amp; number" />
+          </label>
+          <label className="block text-sm">
+            Treatment Requested
+            <input className={fieldClass} placeholder="e.g. Anti-Aging Facial, Body Contouring" />
+          </label>
+          <label className="block text-sm md:col-span-2 xl:col-span-3">
+            Current Medication, Supplements &amp; Allergies
+            <textarea rows={3} className={fieldClass} placeholder="List all, or write None" />
+          </label>
+          <label className="block text-sm md:col-span-2 xl:col-span-3">
+            Skin / Body Concerns &amp; Treatment Goals
+            <textarea rows={3} className={fieldClass} placeholder="What would you like to improve?" />
+          </label>
+        </div>
+
+        <div className="mt-10 grid gap-6 lg:grid-cols-2">
+          <div className="rounded-2xl bg-muted/60 p-5">
+            <h3 className="text-lg">Facial Treatment Contraindications</h3>
+            <p className="mt-1 text-xs text-muted-foreground">
+              Tick any that apply to you now or recently.
+            </p>
+            <ul className="mt-4 space-y-3">
+              {facialContraindications.map((c) => (
+                <li key={c}>
+                  <label className="flex cursor-pointer items-start gap-3 text-sm">
+                    <input
+                      type="checkbox"
+                      checked={!!facial[c]}
+                      onChange={(e) => setFacial((p) => ({ ...p, [c]: e.target.checked }))}
+                      className="mt-1 size-4 shrink-0 accent-rosegold"
+                    />
+                    <span>{c}</span>
+                  </label>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="rounded-2xl bg-muted/60 p-5">
+            <h3 className="text-lg">Body Treatment &amp; Slimming Contraindications</h3>
+            <p className="mt-1 text-xs text-muted-foreground">
+              Tick any that apply to you now or recently.
+            </p>
+            <ul className="mt-4 space-y-3">
+              {bodyContraindications.map((c) => (
+                <li key={c}>
+                  <label className="flex cursor-pointer items-start gap-3 text-sm">
+                    <input
+                      type="checkbox"
+                      checked={!!body[c]}
+                      onChange={(e) => setBody((p) => ({ ...p, [c]: e.target.checked }))}
+                      className="mt-1 size-4 shrink-0 accent-rosegold"
+                    />
+                    <span>{c}</span>
+                  </label>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {flagged.length > 0 && (
+          <div className="mt-6 rounded-2xl border border-rosegold/40 bg-blush p-5 text-sm">
+            <span className="label-eyebrow">Therapist Review Required</span>
+            <p className="mt-2 text-muted-foreground">
+              You have flagged {flagged.length} item(s). Your therapist will discuss these with you
+              and may adapt, postpone or decline the treatment, or request a doctor&apos;s note.
+            </p>
+          </div>
+        )}
+
+        <div className="mt-10 rounded-2xl border border-border p-5 lg:p-6">
+          <span className="label-eyebrow">Waiver, Consent &amp; Indemnity</span>
+          <div className="mt-4 space-y-3 text-sm leading-relaxed text-muted-foreground">
+            <p>
+              I confirm that the information provided above is true and complete, and I will inform
+              Azzuro Body &amp; Skin of any change to my health, medication or pregnancy status
+              before further treatments.
+            </p>
+            <p>
+              I understand that facial and body treatments are beauty and wellness services, not
+              medical procedures, and that they do not diagnose, treat or cure any medical
+              condition.
+            </p>
+            <p>
+              I accept that normal reactions may include redness, warmth, mild swelling, tingling,
+              temporary bruising, breakouts or skin flaking, and that results vary per individual
+              and are not guaranteed.
+            </p>
+            <p>
+              I consent to the treatment discussed, including patch testing where recommended, and I
+              indemnify Azzuro Body &amp; Skin, its owners and therapists against any loss or injury
+              arising from information I have withheld or misrepresented.
+            </p>
+            <p>
+              I have read and accept the salon booking, cancellation, product and privacy policy.
+            </p>
+          </div>
+
+          <div className="mt-6 grid gap-4 md:grid-cols-2">
+            <label className="block text-sm">
+              Signature — type your full name
+              <input
+                className={fieldClass}
+                value={signature}
+                onChange={(e) => setSignature(e.target.value)}
+                maxLength={100}
+                placeholder="Full name"
+              />
+            </label>
+            <label className="block text-sm">
+              Date
+              <input type="date" className={fieldClass} />
+            </label>
+          </div>
+
+          <label className="mt-5 flex cursor-pointer items-start gap-3 text-sm">
+            <input
+              type="checkbox"
+              checked={agreed}
+              onChange={(e) => setAgreed(e.target.checked)}
+              className="mt-1 size-4 shrink-0 accent-rosegold"
+            />
+            <span>
+              I have read, understood and agree to the consultation declaration, waiver and
+              indemnity above.
+            </span>
+          </label>
+
+          <button
+            onClick={submit}
+            className="mt-6 rounded-full bg-rosegold px-6 py-3 font-nav text-xs uppercase tracking-[0.16em] text-rosegold-foreground"
+          >
+            Submit Consultation &amp; Waiver
+          </button>
+        </div>
+      </section>
     </AppLayout>
+
   );
 }
