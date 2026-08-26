@@ -199,8 +199,8 @@ function Bookings() {
               {todaysBookings.map((booking) => (
                 <li key={booking.time} className="flex items-center gap-3 px-6 py-3">
                   <span className="font-nav w-14 text-rosegold">{booking.time}</span>
-                  <span className="truncate">{booking.client}</span>
-                  <span className="ml-auto truncate text-muted-foreground">{booking.service}</span>
+                  <span className="truncate">{booking.service}</span>
+                  <span className="ml-auto truncate text-muted-foreground">{booking.status}</span>
                 </li>
               ))}
             </ul>

@@ -1,8 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { AiNotice, AppLayout } from "@/components/AppLayout";
-import { todaysBookings, zar } from "@/data/salon";
+import { todaysBookings } from "@/data/salon";
 import heroImage from "@/assets/spa-hero.jpg";
-import { CalendarPlus, UserPlus, Mail, Gift, Bot } from "lucide-react";
+import { CalendarPlus, Bot } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -24,18 +24,10 @@ export const Route = createFileRoute("/")({
   component: Dashboard,
 });
 
-const kpis = [
-  { label: "Today's Bookings", value: "24", note: "6 still to arrive" },
-  { label: "Monthly Revenue", value: zar(48500), note: "+4.7% vs July" },
-  { label: "Products Sold", value: "182", note: "Retail attach 41%" },
-  { label: "Returning Clients", value: "78%", note: "Retention holding" },
-];
+const kpis = [{ label: "Today's Bookings", value: "24", note: "6 still to arrive" }];
 
 const quickActions = [
   { label: "New Booking", to: "/bookings", icon: CalendarPlus },
-  { label: "Add Customer", to: "/customers", icon: UserPlus },
-  { label: "Generate Email", to: "/email-generator", icon: Mail },
-  { label: "Create Promotion", to: "/email-generator", icon: Gift },
   { label: "AI Consultation", to: "/chat", icon: Bot },
 ] as const;
 
@@ -76,7 +68,7 @@ function Dashboard() {
           />
         </section>
 
-        <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        <section className="grid gap-4 sm:grid-cols-2">
           {kpis.map((kpi) => (
             <div key={kpi.label} className="surface-card p-6">
               <span className="label-eyebrow">{kpi.label}</span>
@@ -88,7 +80,7 @@ function Dashboard() {
 
         <section>
           <h3 className="text-xl">Quick Actions</h3>
-          <div className="mt-4 grid gap-3 sm:grid-cols-3 xl:grid-cols-5">
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
             {quickActions.map((action) => (
               <Link
                 key={action.label}
@@ -114,12 +106,11 @@ function Dashboard() {
           <div className="divide-y divide-border">
             {todaysBookings.map((booking) => (
               <div
-                key={booking.time + booking.client}
+                key={booking.time + booking.service}
                 className="flex flex-wrap items-center gap-x-6 gap-y-1 px-6 py-4 text-sm"
               >
                 <span className="font-nav w-16 text-rosegold">{booking.time}</span>
-                <span className="min-w-40 font-medium">{booking.client}</span>
-                <span className="text-muted-foreground">{booking.service}</span>
+                <span className="min-w-40 font-medium">{booking.service}</span>
                 <span className="text-muted-foreground">{booking.therapist}</span>
                 <span className="ml-auto rounded-full bg-muted px-3 py-1 font-nav text-[10px] uppercase tracking-[0.14em]">
                   {booking.status}
