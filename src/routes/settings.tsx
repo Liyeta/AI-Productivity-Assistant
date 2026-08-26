@@ -26,11 +26,7 @@ const fieldClass =
   "mt-2 w-full rounded-xl border border-input bg-card px-4 py-3 text-sm outline-none focus:border-rosegold focus:ring-2 focus:ring-rosegold/25";
 
 function Settings() {
-  const [toggles, setToggles] = useState({
-    reminders: true,
-    marketing: true,
-    aiSuggestions: true,
-  });
+
 
   return (
     <AppLayout eyebrow="Configuration" title="Settings">
