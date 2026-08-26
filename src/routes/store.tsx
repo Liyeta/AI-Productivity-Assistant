@@ -55,11 +55,14 @@ function Store() {
         <section className="grid gap-5 sm:grid-cols-2">
           {products.map((product) => (
             <article key={product.id} className="surface-card flex flex-col overflow-hidden">
-              <div
-                className={`grid h-36 place-items-center bg-gradient-to-br ${product.tone} font-display text-2xl text-foreground/70`}
-              >
-                Azzuro
-              </div>
+              <img
+                src={product.image}
+                alt={`${product.name} — Azzuro Body & Skin retail product`}
+                width={768}
+                height={576}
+                loading="lazy"
+                className="h-44 w-full object-cover"
+              />
               <div className="flex flex-1 flex-col p-5">
                 <h3 className="text-lg">{product.name}</h3>
                 <p className="mt-1 flex-1 text-xs leading-relaxed text-muted-foreground">

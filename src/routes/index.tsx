@@ -24,18 +24,10 @@ export const Route = createFileRoute("/")({
   component: Dashboard,
 });
 
-const kpis = [
-  { label: "Today's Bookings", value: "24", note: "6 still to arrive" },
-  { label: "Monthly Revenue", value: zar(48500), note: "+4.7% vs July" },
-  { label: "Products Sold", value: "182", note: "Retail attach 41%" },
-  { label: "Returning Clients", value: "78%", note: "Retention holding" },
-];
+const kpis = [{ label: "Today's Bookings", value: "24", note: "6 still to arrive" }];
 
 const quickActions = [
   { label: "New Booking", to: "/bookings", icon: CalendarPlus },
-  { label: "Add Customer", to: "/customers", icon: UserPlus },
-  { label: "Generate Email", to: "/email-generator", icon: Mail },
-  { label: "Create Promotion", to: "/email-generator", icon: Gift },
   { label: "AI Consultation", to: "/chat", icon: Bot },
 ] as const;
 
