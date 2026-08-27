@@ -9,6 +9,7 @@ import {
   ShoppingBag,
   Mail,
   Bot,
+  UserRound,
   type LucideIcon,
 } from "lucide-react";
 
@@ -19,14 +20,16 @@ const nav: { to: any; label: string; icon: LucideIcon }[] = [
   { to: "/store", label: "Retail Store", icon: ShoppingBag },
   { to: "/email-generator", label: "Smart Email Generator", icon: Mail },
   { to: "/chat", label: "AI Beauty Chat", icon: Bot },
+  { to: "/profile", label: "Profile", icon: UserRound },
 ] as const;
 
 const bottomNav: { to: any; label: string; icon: LucideIcon }[] = [
   { to: "/", label: "Home", icon: Home },
   { to: "/bookings", label: "Bookings", icon: CalendarDays },
   { to: "/store", label: "Store", icon: ShoppingBag },
-  { to: "/services", label: "Services", icon: Sparkles },
   { to: "/chat", label: "AI Chat", icon: Bot },
+  { to: "/profile", label: "Profile", icon: UserRound },
+
 ] as const;
 
 function Brand() {
