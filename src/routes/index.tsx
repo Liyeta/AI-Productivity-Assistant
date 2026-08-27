@@ -53,10 +53,10 @@ function Dashboard() {
                 New Booking
               </Link>
               <Link
-                to="/reports"
+                to="/services"
                 className="rounded-full border border-rosegold px-6 py-3 font-nav text-xs uppercase tracking-[0.16em] text-rosegold transition-colors hover:bg-blush"
               >
-                View Reports
+                View Treatments
               </Link>
             </div>
           </div>
