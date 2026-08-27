@@ -27,8 +27,9 @@ const bottomNav: { to: any; label: string; icon: LucideIcon }[] = [
   { to: "/", label: "Home", icon: Home },
   { to: "/bookings", label: "Bookings", icon: CalendarDays },
   { to: "/store", label: "Store", icon: ShoppingBag },
-  { to: "/services", label: "Services", icon: Sparkles },
+  { to: "/chat", label: "AI Chat", icon: Bot },
   { to: "/profile", label: "Profile", icon: UserRound },
+
 ] as const;
 
 function Brand() {
