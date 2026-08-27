@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as BookingsRouteImport } from './routes/bookings'
 import { Route as ChatRouteImport } from './routes/chat'
 import { Route as EmailGeneratorRouteImport } from './routes/email-generator'
+import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as StoreRouteImport } from './routes/store'
 
@@ -36,6 +37,11 @@ const EmailGeneratorRoute = EmailGeneratorRouteImport.update({
   path: '/email-generator',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
@@ -52,6 +58,7 @@ export interface FileRoutesByFullPath {
   '/bookings': typeof BookingsRoute
   '/chat': typeof ChatRoute
   '/email-generator': typeof EmailGeneratorRoute
+  '/profile': typeof ProfileRoute
   '/services': typeof ServicesRoute
   '/store': typeof StoreRoute
 }
@@ -60,6 +67,7 @@ export interface FileRoutesByTo {
   '/bookings': typeof BookingsRoute
   '/chat': typeof ChatRoute
   '/email-generator': typeof EmailGeneratorRoute
+  '/profile': typeof ProfileRoute
   '/services': typeof ServicesRoute
   '/store': typeof StoreRoute
 }
@@ -69,21 +77,36 @@ export interface FileRoutesById {
   '/bookings': typeof BookingsRoute
   '/chat': typeof ChatRoute
   '/email-generator': typeof EmailGeneratorRoute
+  '/profile': typeof ProfileRoute
   '/services': typeof ServicesRoute
   '/store': typeof StoreRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/bookings' | '/chat' | '/email-generator' | '/services' | '/store'
+    | '/'
+    | '/bookings'
+    | '/chat'
+    | '/email-generator'
+    | '/profile'
+    | '/services'
+    | '/store'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/bookings' | '/chat' | '/email-generator' | '/services' | '/store'
+  to:
+    | '/'
+    | '/bookings'
+    | '/chat'
+    | '/email-generator'
+    | '/profile'
+    | '/services'
+    | '/store'
   id:
     | '__root__'
     | '/'
     | '/bookings'
     | '/chat'
     | '/email-generator'
+    | '/profile'
     | '/services'
     | '/store'
   fileRoutesById: FileRoutesById
@@ -93,6 +116,7 @@ export interface RootRouteChildren {
   BookingsRoute: typeof BookingsRoute
   ChatRoute: typeof ChatRoute
   EmailGeneratorRoute: typeof EmailGeneratorRoute
+  ProfileRoute: typeof ProfileRoute
   ServicesRoute: typeof ServicesRoute
   StoreRoute: typeof StoreRoute
 }
@@ -127,6 +151,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EmailGeneratorRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services': {
       id: '/services'
       path: '/services'
@@ -149,6 +180,7 @@ const rootRouteChildren: RootRouteChildren = {
   BookingsRoute: BookingsRoute,
   ChatRoute: ChatRoute,
   EmailGeneratorRoute: EmailGeneratorRoute,
+  ProfileRoute: ProfileRoute,
   ServicesRoute: ServicesRoute,
   StoreRoute: StoreRoute,
 }
