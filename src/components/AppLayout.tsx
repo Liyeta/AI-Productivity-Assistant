@@ -7,13 +7,8 @@ import {
   CalendarDays,
   Sparkles,
   ShoppingBag,
-  Users,
   Mail,
-  Search,
   Bot,
-  TrendingUp,
-  Settings,
-  User,
   type LucideIcon,
 } from "lucide-react";
 
@@ -22,20 +17,16 @@ const nav: { to: any; label: string; icon: LucideIcon }[] = [
   { to: "/bookings", label: "Bookings", icon: CalendarDays },
   { to: "/services", label: "Services", icon: Sparkles },
   { to: "/store", label: "Retail Store", icon: ShoppingBag },
-  { to: "/customers", label: "Customers", icon: Users },
   { to: "/email-generator", label: "Smart Email Generator", icon: Mail },
-  { to: "/research", label: "AI Research Assistant", icon: Search },
   { to: "/chat", label: "AI Beauty Chat", icon: Bot },
-  { to: "/reports", label: "Reports & Analytics", icon: TrendingUp },
-  { to: "/settings", label: "Settings", icon: Settings },
 ] as const;
 
 const bottomNav: { to: any; label: string; icon: LucideIcon }[] = [
   { to: "/", label: "Home", icon: Home },
   { to: "/bookings", label: "Bookings", icon: CalendarDays },
   { to: "/store", label: "Store", icon: ShoppingBag },
+  { to: "/services", label: "Services", icon: Sparkles },
   { to: "/chat", label: "AI Chat", icon: Bot },
-  { to: "/settings", label: "Profile", icon: User },
 ] as const;
 
 function Brand() {
